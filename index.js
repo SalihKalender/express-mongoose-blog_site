@@ -23,7 +23,7 @@ const store = new MongoDBStore({
 
 app.use(cookieParser());
 app.use(session({
-    secret: process.env.Session_SECRET || 'keyboard dog',     //* Gloal projelerde burayı tabikide degistir, session'un sifresi gibi dusun
+    secret: process.env.Session_SECRET || 'keyboard dog',
     resave: false,
     saveUninitialized: false,
     cookie: { 
@@ -35,7 +35,7 @@ app.use(csurf());
 
 const user_Routes = require('./routes/user');
 const admin_Routes = require('./routes/admin');
-const error_Routes = require('./routes/error');    //* DİREK COTROLLER'ADA ATSAN OLUYOR
+const error_Routes = require('./routes/error');
 
 app.set('view engine', 'pug');
 app.set('views','./views');
