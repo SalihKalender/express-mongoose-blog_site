@@ -1,0 +1,45 @@
+extends ../layouts/main-layout.pug
+
+
+block Page_Content
+ .flex.flex-col.my-10
+  .-my-2.overflow-x-auto(class='sm:-mx-6 lg:-mx-8').p-20s
+    .py-2.align-middle.inline-block.min-w-full(class='sm:px-24 lg:px-24')
+      .shadow.overflow-hidden.border-b.border-gray-200(class='sm:rounded-lg')
+        table.min-w-full.divide-y.divide-gray-200
+          thead.bg-gray-50
+            tr
+              th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(scope='col')
+                | Name
+              th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(scope='col')
+                | Title
+              th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(scope='col')
+                | Status
+              th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(scope='col')
+                | Role
+              th.relative.px-6.py-3(scope='col')
+                span.sr-only Edit
+          tbody.bg-white.divide-y.divide-gray-200
+            each post in posts
+              tr
+                td.px-6.py-4.whitespace-nowrap
+                  .flex.items-center
+                    .flex-shrink-0.h-10.w-10
+                    .ml-4
+                      .text-sm.font-medium.text-gray-900
+                        | #{admin_Name}
+                      .text-sm.text-gray-500
+                        | #{admin_Mail}
+                td.px-6.py-4.whitespace-nowrap
+                  .text-sm.text-gray-900 #{post.title}
+                  .text-sm.text-gray-500 #{admin_Name}
+                td.px-6.py-4.whitespace-nowrap
+                  span.px-2.inline-flex.text-xs.leading-5.font-semibold.rounded-full.bg-green-100.text-green-800
+                    | Active
+                td.px-6.py-4.whitespace-nowrap.text-sm.text-gray-500
+                  | Admin
+                td.px-6.py-4.whitespace-nowrap.text-right.text-sm.font-medium
+                  form(action=`/admin/${admin_Name}/edit-product` method='POST')
+                    input(type='hidden' name='_csrf' value=`${csrf_Token}`)
+                    input(type='hidden' name='id' value=`${post._id}`)
+                    button.text-indigo-600(type='submit' class='hover:text-indigo-900') Edit

@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "mini blog application with auth in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-mongodb-session": "^2.4.1",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.12.7",
+    "pug": "^3.0.2"
+  }
+}

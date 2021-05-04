@@ -1,0 +1,19 @@
+extends ../layouts/main-layout.pug
+
+
+block Page_Content
+    .mx-4.card.bg-white.max-w-md.p-10.my-8.mx-auto(class='md:rounded-lg')
+        .title
+            h1.font-bold.text-center Edit Post !!!
+        
+        form.form.mt-4(action='/admin/edit-post' method='POST')
+            input(type='hidden' name='_csrf' value=`${csrf_Token}`)
+            input(type='hidden' name='id' value=`${post._id}`)
+            .flex.flex-col.text-sm
+                label.font-bold.mb-2(for='title') Title
+                input.appearance-none.border.border-gray-200.p-2(class='focus:outline-none focus:border-gray-500' value=`${post.title}` required name='title' type='text' placeholder='Enter a title')
+            .text-sm.flex.flex-col
+                label.font-bold.mt-4.mb-2(for='description') Description
+                textarea.appearance-none.w-full.border.border-gray-200.p-2.h-40(class='focus:outline-none focus:border-gray-500' required name='description' placeholder=`${post.description}`)
+            .submit
+                button.w-full.bg-blue-600.shadow-lg.text-white.px-4.py-2.mt-8.text-center.font-semibold(type='submit' class='hover:bg-blue-700 focus:outline-none') Submit

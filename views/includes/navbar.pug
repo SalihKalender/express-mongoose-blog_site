@@ -1,0 +1,14 @@
+nav(style='padding: 15px 150px;')
+  ul.items-center.justify-between.text-base.text-gray-700.pt-4(class='lg:flex lg:pt-0')
+    li
+      a.py-3.px-0.block.border-b-2.border-transparent(class='lg:p-4 hover:border-indigo-400' href='/') Blogs
+    if (isAuth)
+      li
+        a.py-3.px-0.block.border-b-2.border-transparent(class='lg:p-4 hover:border-indigo-400' href=`/admin/${admin_Name}/posts`) Your Posts
+      li
+        a.py-3.px-0.block.border-b-2.border-transparent(class='lg:p-4 hover:border-indigo-400' href='/admin/add-post') Add Post
+      li
+        a.py-3.px-0.block.border-b-2.border-transparent(class='lg:p-4 hover:border-indigo-400' href='/admin/logout') Logout
+    else
+      li
+        a.py-3.px-0.block.border-b-2.border-transparent(class='lg:p-4 hover:border-indigo-400' href='/login') Login

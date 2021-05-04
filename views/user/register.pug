@@ -1,0 +1,24 @@
+extends ../layouts/main-layout.pug
+
+
+block styles
+  link(rel='stylesheet' href='/css/register.css') 
+
+
+block Page_Content
+    include ../includes/alerts.pug
+    .login-page
+      .form
+        form.register-form(action='/new-register' method='POST')
+          input(type='hidden' name='_csrf' value=`${csrf_Token}`)
+          input(type='text' placeholder='Name' name='name' required)
+          input(type='text' placeholder='User Name' name='user_name' required)
+          input(type='password' placeholder='Password' name='password' required)
+          input(type='email' placeholder='Email Address' name='email' required)
+          button(type='submit') create
+          p.message
+            | Already registered? 
+          a(href='/login') Sign In
+
+
+

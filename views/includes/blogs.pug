@@ -1,0 +1,14 @@
+each post in posts
+  .p-10
+    .w-full(class='lg:max-w-full lg:flex')
+      .h-48.flex-none.bg-cover.rounded-t.text-center.overflow-hidden(class='lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l' style="background-image: url('/mountain.jpg')" title='Mountain')
+      .border-r.border-b.border-l.border-gray-400.bg-white.rounded-b.p-4.flex.flex-col.justify-between.leading-normal(class='lg:border-l-0 lg:border-t lg:border-gray-400 lg:rounded-b-none lg:rounded-r')
+        .mb-8
+          .text-gray-900.font-bold.text-xl.mb-2 #{post.title}
+          p.text-gray-700.text-base
+            | #{post.description}
+        .flex.items-center
+          
+          .text-sm
+            p.text-gray-900.leading-none #{post.user_id.user_name}
+            p.text-gray-600 #{post.date.getFullYear()}/#{post.date.getMonth() + 1}/#{post.date.getDate()} --- #{post.date.getHours()}:#{post.date.getMinutes()}:#{post.date.getSeconds()}
